@@ -1,5 +1,5 @@
 export function createStore(rootReducer, initialState) {
-  const state = rootReducer(initialState, { type: "__INIT__" });
+  let state = rootReducer(initialState, { type: "__INIT__" });
   const subscribers = [];
   return {
     dispatch(action) {
@@ -11,6 +11,6 @@ export function createStore(rootReducer, initialState) {
     },
     getState() {
       return state;
-    },
-  };
+    }
+  }
 }
